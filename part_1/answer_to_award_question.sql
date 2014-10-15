@@ -1,0 +1,1 @@
+select * from employee e join award a on e.id = a.employee_id join (select employee_id, max(award_date) as most_recent_award_date from award group by employee_id) latest_award on e.id = latest_award.employee_id and a.award_date = latest_award.most_recent_award_date;
